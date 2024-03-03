@@ -1,0 +1,16 @@
+LOCALHOST
+# Get all contacts
+T http://localhost:3000/contacts
+
+#Get contact by id
+T http://localhost:3000/contacts/65e3a28b39461aa5447c20e3
+
+#Create Contact
+# ST http://localhost:3000/contacts HTTP/1.1
+# ntent-type: application/json
+
+#     "firstname":"Frank",
+#     "lastname":"Sinatra",
+#     "email":"franksinatra@email.com",
+#     "favoriteColor":"blue",
+#     "Birthday":"December 12, 1915"
