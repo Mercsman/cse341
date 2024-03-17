@@ -10,13 +10,13 @@ router.get('/', authorsController.getAll);
 router.get('/:id', authorsController.getSingle);
 
 //Create a POST route to create a new contact.
-router.post('/', requiresAuth(), authorsController.newAuthor);
+router.post('/', validation.saveAuthor, authorsController.newAuthor);
 
 //Create a PUT route to update a contact
-router.put('/:id', requiresAuth(), authorsController.updateAuthor);
+router.put('/:id', validation.saveAuthor, authorsController.updateAuthor);
 
 //Create a DELETE route to delete a contact
-router.delete('/:id', requiresAuth(), authorsController.deleteAuthor);
+router.delete('/:id', validation.saveAuthor, authorsController.deleteAuthor);
 
 //export the router
 module.exports = router;

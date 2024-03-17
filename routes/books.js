@@ -10,13 +10,13 @@ router.get('/', booksController.getAll);
 router.get('/:id', booksController.getSingle);
 
 //Create a POST route to create a new book.
-router.post('/', requiresAuth(), booksController.newBook);
+router.post('/', validation.saveBook, booksController.newBook);
 
 //Create a PUT route to update a book
-router.put('/:id', requiresAuth(), booksController.updateBook);
+router.put('/:id', validation.saveBook, booksController.updateBook);
 
 //Create a DELETE route to delete a book
-router.delete('/:id', requiresAuth(), booksController.deleteBook);
+router.delete('/:id', validation.saveBook, booksController.deleteBook);
 
 //export the router
 module.exports = router;
