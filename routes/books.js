@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const booksController = require('../controllers/books');
-const { requiresAuth } = require('express-openid-connect');
+const validation = require('../middleware/validate');
 
 //get all books documents
 router.get('/', booksController.getAll);
