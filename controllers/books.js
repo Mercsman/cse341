@@ -2,7 +2,7 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-    const result = await mongodb.getDatabase().db('books').collection('books').find();
+    const result = await mongodb.getDatabase().db('project1').collection('books').find();
     result.toArray((err, lists) => {
         if (err) {
             res.status(400),json({ message: err });
@@ -17,7 +17,7 @@ const getSingle = async (req, res) => {
         res.status(400).json('Must use a valid contact id to find a book.');
     }
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db('books').collection('books').find({ _id: userId});
+    const result = await mongodb.getDatabase().db('project1').collection('books').find({ _id: userId});
     result.toArray((err, lists) => {
         if (err) {
             res.status(400),json({ message: err });
@@ -37,7 +37,7 @@ const createBook = async (req, res) => {
         series: req.body.series,
         yearPublished: req.body.yearPublished
     };
-    const response = await mongodb.getDatabase().db('books').collection('books').insertOne(book);
+    const response = await mongodb.getDatabase().db('project1').collection('books').insertOne(book);
     if (response.acknowledged) {
         res.status(204).send();
     } else {
@@ -59,7 +59,7 @@ const updateBook = async (req, res) => {
         series: req.body.series,
         yearPublished: req.body.yearPublished
     };
-    const response = await mongodb.getDatabase().db('books').collection('books').replaceOne({ _id: userId}, book);
+    const response = await mongodb.getDatabase().db('project1').collection('books').replaceOne({ _id: userId}, book);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
@@ -72,7 +72,7 @@ const deleteBook = async (req, res) => {
         res.status(400).json('Must use a valid contact id to delete a book.');
     }
     const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db('books').collection('book').deleteOne({ _id: userId});
+    const response = await mongodb.getDatabase().db('project1').collection('book').deleteOne({ _id: userId});
     if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
