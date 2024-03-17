@@ -1,7 +1,7 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAllAuthors = async (req, res) => {
+const getAll = async (req, res) => {
     const result = await mongodb.getDatabase().db('books').collection('authors').find();
     result.toArray((err, lists) => {
         if (err) {
@@ -12,7 +12,7 @@ const getAllAuthors = async (req, res) => {
     });
 };
 
-const getSingleAuthor = async (req, res) => {
+const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid contact id to find a author.');
     }
@@ -73,8 +73,8 @@ const deleteAuthor = async (req, res) => {
 };
 
 module.exports = {
-    getAllAuthors,
-    getSingleAuthor,
+    getAll,
+    getSingle,
     createAuthor,
     updateAuthor,
     deleteAuthor

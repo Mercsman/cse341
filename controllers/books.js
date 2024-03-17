@@ -1,7 +1,7 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAllBooks = async (req, res) => {
+const getAll = async (req, res) => {
     const result = await mongodb.getDatabase().db('books').collection('books').find();
     result.toArray((err, lists) => {
         if (err) {
@@ -12,7 +12,7 @@ const getAllBooks = async (req, res) => {
     });
 };
 
-const getSingleBook = async (req, res) => {
+const getSingle = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid contact id to find a book.');
     }
@@ -41,7 +41,7 @@ const createBook = async (req, res) => {
     if (response.acknowledged) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'Some error occurred while creating the book.');
+        res.status(500).json(response.error || 'Some error occurred while creating the author.');
     }
 };
 
@@ -81,8 +81,8 @@ const deleteBook = async (req, res) => {
 };
 
 module.exports = {
-    getAllBooks,
-    getSingleBook,
+    getAll,
+    getSingle,
     createBook,
     updateBook,
     deleteBook
