@@ -22,11 +22,13 @@ const saveContact = (req, res, next) => {
 };
 const saveBook = (req, res, next) => {
     const validationRule = {
-        firstName: 'required|string',
-        lastName: 'required|string',
-        email: 'required|email',
-        favoriteColor: 'required|string',
-        birthday: 'string',
+        title: 'required|string',
+        authorFirstName: 'required|string',
+        authorLastName: 'required|string',
+        genre: 'required|genre',
+        publisher: 'string',
+        series: 'string',
+        yearPublished: 'string',
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
@@ -45,9 +47,7 @@ const saveAuthor = (req, res, next) => {
     const validationRule = {
         firstName: 'required|string',
         lastName: 'required|string',
-        email: 'required|email',
-        favoriteColor: 'required|string',
-        birthday: 'string',
+        genre: 'required|string',
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
