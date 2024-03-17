@@ -1,14 +1,14 @@
 const swaggerAutogen = require('swagger-autogen')();
 const doc = {
     info: {
-        title: 'Contacts API',
-        description: 'Contacts API',
+        title: 'Project 2',
+        description: 'Project 2',
     },
     host: 'localhost:3000',
     schemes: ['http', 'https'],
 };
 
-const outputFile = './swagger.json';
+const outputFile = './swagger03.json';
 const endpointsFiles = ['./routes/index.js'];
 
 // generate swagger.json
