@@ -1,7 +1,7 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res) => {
+const getAllBooks = async (req, res) => {
     const result = await mongodb.getDatabase().db('books').collection('books').find();
     result.toArray((err, lists) => {
         if (err) {
@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
     });
 };
 
-const getSingle = async (req, res) => {
+const getSingleBook = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid contact id to find a book.');
     }
@@ -81,8 +81,8 @@ const deleteBook = async (req, res) => {
 };
 
 module.exports = {
-    getAll,
-    getSingle,
+    getAllBooks,
+    getSingleBook,
     createBook,
     updateBook,
     deleteBook
