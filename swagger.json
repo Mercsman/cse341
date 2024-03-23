@@ -42,7 +42,7 @@
         }
       }
     },
-    "/contacts/": {
+    "contacts/": {
       "get": {
         "tags": [
           "Contacts"
@@ -104,7 +104,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "contacts/{id}": {
       "get": {
         "tags": [
           "Contacts"
@@ -208,7 +208,7 @@
         }
       }
     },
-    "/authors/": {
+    "authors/": {
       "get": {
         "description": "",
         "produces": [
@@ -258,7 +258,7 @@
         }
       }
     },
-    "/authors/{id}": {
+    "authors/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -350,7 +350,7 @@
         }
       }
     },
-    "/books/": {
+    "books/": {
       "get": {
         "description": "",
         "produces": [
@@ -412,7 +412,7 @@
         }
       }
     },
-    "/books/{id}": {
+    "books/{id}": {
       "get": {
         "description": "",
         "produces": [
