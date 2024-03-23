@@ -4,7 +4,7 @@ const doc = {
         title: 'Project 2',
         description: 'Project 2',
     },
-    host: 'https://project1-ck8y.onrender.com/',
+    host: 'project1-ck8y.onrender.com/',
     schemes: ['http', 'https'],
 };
 
